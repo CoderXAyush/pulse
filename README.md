@@ -2,8 +2,6 @@
 
 **Pulse** is a full-stack web app for uploading videos, running a simple automated “safety” pass on the server, and watching them in the browser. It includes **multi-tenant organizations**, **role-based access (RBAC)**, **real-time processing updates** over WebSockets, and a **dashboard + in-player** experience.
 
-**Repository:** [github.com/CoderXAyush/pulse](https://github.com/CoderXAyush/pulse)
-
 ---
 
 ## Features
@@ -16,7 +14,7 @@
 | **Upload** | MP4 / MOV / AVI, size limit (100 MB), validation on the server |
 | **Pipeline** | Stages: validation → storage → sensitivity check (demo) → streaming prep → completed; progress emitted per org room |
 | **Dashboard** | Table: **#**, name, description, format, size, **uploaded** date/time, sortable columns, open/delete (by role) |
-| **Playback** | Split view: **mini playlist** (switch videos) + player with **−10s / +10s** controls overlaid on the video |
+| **Playback** | Split view: **mini playlist** + custom player (fullscreen, **← / →** skip 10s, **↑ / ↓** volume) |
 | **API** | REST + **Socket.io**; range requests for streaming |
 
 ---
@@ -189,9 +187,3 @@ Base URL: `http://localhost:<PORT>/api` (see `.env`).
 - Use a long random **`JWT_SECRET`** in production.
 - Restrict **CORS** and **Socket.io** origins in production.
 - Uploaded files live under **`backend/uploads/`**; back up and scan as needed for real deployments.
-
----
-
-## License
-
-MIT
