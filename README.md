@@ -1,23 +1,3 @@
-# Pulse
-
-**Pulse** is a full-stack web app for uploading videos, running a simple automated “safety” pass on the server, and watching them in the browser. It includes **multi-tenant organizations**, **role-based access (RBAC)**, **real-time processing updates** over WebSockets, and a **dashboard + in-player** experience.
-
----
-
-## Features
-
-| Area | What you get |
-|------|----------------|
-| **Auth** | Email/password (JWT) and optional **Google Sign-In** |
-| **Multi-tenant** | Each user belongs to an **organization**; videos are scoped by `organizationId` |
-| **RBAC** | **Viewer** (read-only, no upload), **Editor** (upload & manage own uploads), **Admin** (e.g. list org users) |
-| **Upload** | MP4 / MOV / AVI, size limit (100 MB), validation on the server |
-| **Pipeline** | Stages: validation → storage → sensitivity check (demo) → streaming prep → completed; progress emitted per org room |
-| **Dashboard** | Table: **#**, name, description, format, size, **uploaded** date/time, sortable columns, open/delete (by role) |
-| **Playback** | Split view: **mini playlist** + custom player (fullscreen, **← / →** skip 10s, **↑ / ↓** volume) |
-| **API** | REST + **Socket.io**; range requests for streaming |
-
----
 
 ## Tech stack
 
