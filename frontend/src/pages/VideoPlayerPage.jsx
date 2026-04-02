@@ -230,37 +230,37 @@ export default function VideoPlayerPage() {
               <p className="mt-1 text-sm text-zinc-500">{video.description || "No description"}</p>
             </div>
 
-            <div className="space-y-3">
-              <div className="overflow-hidden rounded-2xl border border-zinc-200 bg-black shadow-sm">
-                <video
-                  key={id}
-                  ref={videoRef}
-                  className="h-auto w-full"
-                  src={videoUrl}
-                  controls
-                  playsInline
-                />
-              </div>
-
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:justify-start">
-                <button
-                  type="button"
-                  onClick={skipBackward}
-                  className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50"
-                  aria-label={`Skip back ${SKIP_SECONDS} seconds`}
-                >
-                  <IconSkipBack />
-                  <span>−{SKIP_SECONDS}s</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={skipForward}
-                  className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-4 py-2.5 text-sm font-medium text-zinc-800 shadow-sm transition hover:bg-zinc-50"
-                  aria-label={`Skip forward ${SKIP_SECONDS} seconds`}
-                >
-                  <span>+{SKIP_SECONDS}s</span>
-                  <IconSkipForward />
-                </button>
+            <div className="relative overflow-hidden rounded-2xl border border-zinc-200 bg-black shadow-sm">
+              <video
+                key={id}
+                ref={videoRef}
+                className="relative z-0 block h-auto w-full"
+                src={videoUrl}
+                controls
+                playsInline
+              />
+              {/* In-frame controls above the native bar (DOM order + z-index over video) */}
+              <div className="pointer-events-none absolute inset-0 z-[60] flex items-end justify-center">
+                <div className="pointer-events-auto mb-[4.25rem] flex items-center gap-0.5 rounded-md bg-black/80 px-1 py-1 shadow-[0_4px_24px_rgba(0,0,0,0.5)] ring-1 ring-white/20 backdrop-blur-md sm:mb-[4.75rem]">
+                  <button
+                    type="button"
+                    onClick={skipBackward}
+                    className="inline-flex items-center gap-1 rounded px-2.5 py-2 text-sm font-medium text-white transition hover:bg-white/20"
+                    aria-label={`Skip back ${SKIP_SECONDS} seconds`}
+                  >
+                    <IconSkipBack />
+                    <span className="tabular-nums">−{SKIP_SECONDS}s</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={skipForward}
+                    className="inline-flex items-center gap-1 rounded px-2.5 py-2 text-sm font-medium text-white transition hover:bg-white/20"
+                    aria-label={`Skip forward ${SKIP_SECONDS} seconds`}
+                  >
+                    <span className="tabular-nums">+{SKIP_SECONDS}s</span>
+                    <IconSkipForward />
+                  </button>
+                </div>
               </div>
             </div>
 
