@@ -7,3 +7,36 @@ body {
 #root {
   @apply min-h-screen;
 }
+
+/* Video player: fill the browser fullscreen layer edge-to-edge */
+.pulse-player:fullscreen {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #000;
+  display: block;
+  position: relative;
+}
+
+.pulse-player:-webkit-full-screen {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-width: 100vw;
+  min-height: 100vh;
+  min-height: 100dvh;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #000;
+  display: block;
+  position: relative;
+}
