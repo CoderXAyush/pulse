@@ -1,9 +1,3 @@
-# Pulse
-
-**Pulse** is a full-stack web app for uploading videos, running a simple automated “safety” pass on the server, and watching them in the browser. It includes **multi-tenant organizations**, **role-based access (RBAC)**, **real-time processing updates** over WebSockets, and a **dashboard + in-player** experience.
-
----
-
 ## Features
 
 | Area | What you get |
